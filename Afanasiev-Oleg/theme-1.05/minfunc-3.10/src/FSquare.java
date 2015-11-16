@@ -6,6 +6,7 @@ public class FSquare extends AbstractFunc {
     public FSquare() {
     }
 
+    @Override
     public double f(double x) {
         return x * x;
     }
