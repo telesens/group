@@ -13,11 +13,11 @@ public class GeometricMean {
     }
 
     public void print() {
-        System.out.println("+--------------------------+");
+        System.out.println("+--------+--------+--------+");
         System.out.println("|    a   |    b   |    G   |");
-        System.out.println("+--------------------------+");
+        System.out.println("+--------+--------+--------+");
         System.out.printf("| %6.2f | %6.2f | %6.2f |\n", a, b, G);
-        System.out.println("+--------------------------+");
+        System.out.println("+--------+--------+--------+");
     }
 
     private double solve() {
