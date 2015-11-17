@@ -13,30 +13,37 @@ public class SieveEratosthenen
     }
 
     public void print() {
-        final int nGroup = 30;
-        for (int i = 0; i < N; i++) {
-            System.out.print(arr[i] + " ");
-            if (i % nGroup == nGroup -1)
+        final int maxCol = 30;
+
+        for (int i = 0, col = 1; i < N; i++, col++) {
+            System.out.printf("%4d ", arr[i]);
+
+            if (col == maxCol) {
                 System.out.println();
+                col = 0;
+            }
         }
     }
 
     public void printOnlyPrime() {
-        final int nGroup = 30;
-        int j = 0;
+        final int maxCol = 30;
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0, col = 0; i < N; i++) {
             if (arr[i] > 0) {
-                j++;
-                System.out.print(arr[i] + " ");
-                if (j % nGroup == 0)
+                col++;
+                System.out.printf("%4d ", arr[i]);
+
+                if (col == maxCol) {
+                    col = 0;
                     System.out.println();
+                }
             }
         }
     }
 
     private void initArray() {
         arr = new int[N];
+        
         for (int i = 0; i < N; i++) {
             arr[i] = i + 1;
         }
