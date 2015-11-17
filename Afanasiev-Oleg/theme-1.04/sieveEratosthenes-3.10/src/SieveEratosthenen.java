@@ -43,7 +43,7 @@ public class SieveEratosthenen
 
     private void initArray() {
         arr = new int[N];
-        
+
         for (int i = 0; i < N; i++) {
             arr[i] = i + 1;
         }
