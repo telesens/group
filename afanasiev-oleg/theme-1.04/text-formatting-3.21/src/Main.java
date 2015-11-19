@@ -1,9 +1,11 @@
+import java.util.Arrays;
+
 /**
  * Created by oleg on 11/18/15.
  */
 public class Main {
     public static void main(String[] args) {
-        int width = 40;
+        int width = 90;
         String text =
                 "The cheetah (Acinonyx jubatus) is a big cat in the subfamily Felinae that inhabits most of Africa and parts of Iran. " +
                         " It is the only extant member of the genus Acinonyx. The cheetah can run as fast as 109.4 to 120.7 km/h (68.0 to 75.0 mph), " +
@@ -41,19 +43,17 @@ public class Main {
                 lineLength += words[i].length() + 1;
             }
             else {
-                lineStr = justify(lineStr, width);
-                System.out.println(lineStr);
+                System.out.println(justify(lineStr.toString(), width));
                 lineStr.setLength(0);
                 lineStr.append(words[i] + " ");
                 lineLength = words[i].length() + 1;
             }
         } // for
 
-        lineStr = justify(lineStr, width);
         System.out.println(lineStr);
     }
 
-    private static StringBuilder justify(StringBuilder line, int width) {
+    private static StringBuilder justifyOld(StringBuilder line, int width) {
         int needAddSpaces = width - line.toString().trim().length();
 
         if (needAddSpaces == 0)
@@ -74,6 +74,38 @@ public class Main {
             }
         }
 
-        return justify(line, width);
+        return justifyOld(line, width);
+    }
+
+    private static String justify(String line, int width) {
+        int nInseredSpaces = width - line.trim().length();
+
+        if (nInseredSpaces == 0)
+            return line;
+
+        String[] words = line.toString().trim().split(" ");
+        if (words.length < 2)
+            return line;
+
+        StringBuilder lineSB = new StringBuilder(line);
+        int nGroupSpaces = nInseredSpaces / (words.length - 1);
+        int nRemainSpaces = nInseredSpaces % (words.length - 1);
+        char[] groupSpaces = new char[nGroupSpaces];
+
+        Arrays.fill(groupSpaces, ' ');
+        lineSB.setLength(0);
+
+        for (int i = 0; i < words.length; i++) {
+            lineSB.append(words[i] + " ");
+
+            lineSB.append(groupSpaces);
+
+            if (nRemainSpaces > 0) {
+                lineSB.append(" ");
+                nRemainSpaces--;
+            }
+        }
+
+        return lineSB.toString();
     }
 }
