@@ -3,7 +3,7 @@
  */
 public class Main {
     public static void main(String[] args) {
-        int width = 40;
+        int width = 60;
         String text =
                 "The cheetah (Acinonyx jubatus) is a big cat in the subfamily Felinae that inhabits most of Africa and parts of Iran. " +
                         " It is the only extant member of the genus Acinonyx. The cheetah can run as fast as 109.4 to 120.7 km/h (68.0 to 75.0 mph), " +
@@ -49,7 +49,6 @@ public class Main {
             }
         } // for
 
-        lineStr = justify(lineStr, width);
         System.out.println(lineStr);
     }
 
@@ -75,5 +74,29 @@ public class Main {
         }
 
         return justify(line, width);
+    }
+
+    private static StringBuilder justifyOptim(StringBuilder line, int width) {
+        int needAddSpaces = width - line.toString().trim().length();
+
+        if (needAddSpaces == 0)
+            return line;
+
+        String[] words = line.toString().trim().split(" ");
+        if (words.length < 2)
+            return line;
+
+        line.setLength(0);
+
+        for (int i = 0; i < words.length; i++) {
+            line.append(words[i] + " ");
+
+            if (needAddSpaces > 0) {
+                line.append(" ");
+                needAddSpaces--;
+            }
+        }
+
+        return line;
     }
 }

@@ -8,8 +8,8 @@ public class Main {
         String testLine =
                 "  Тестовая  сТРОКА, СТРОКА, коТоРая дОЛЖНа быть     оТкорРектироваНа автоматичесКИ Удачи в решении.  Неккоретные ьслова появляются Ьздесь! ";
 
-        Scanner scanner = new Scanner(System.in);
-        testLine = scanner.nextLine();
+        //Scanner scanner = new Scanner(System.in);
+        //testLine = scanner.nextLine();
 
         String correctedLine = correct(testLine);
 
