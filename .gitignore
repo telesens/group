@@ -21,7 +21,11 @@
 hs_err_pid*
 
 
+###
+# Personal
+###
 
+.routes/
 
 ### 
 # Intellij 
