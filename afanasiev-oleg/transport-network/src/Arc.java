@@ -1,7 +1,7 @@
 /**
  * Created by oleg on 11/20/15.
  */
-public class Section<T> {
+public class Arc<T> {
     public static class ErrorNodesInit extends Exception {
         public void printError() {
             System.err.println("ErrorNodesInit! Two nodes must be differ");
@@ -13,21 +13,13 @@ public class Section<T> {
     private T startNode;
     private T finishNode;
 
-    public Section(T startNode, T finishNode, double sKm, double tMin) throws ErrorNodesInit {
+    public Arc(T startNode, T finishNode, double sKm, double tMin) throws ErrorNodesInit {
         if (startNode.equals(finishNode))
                 throw new ErrorNodesInit();
 
         this.startNode = startNode;
+        this.startNode = startNode;
         this.finishNode = finishNode;
-        this.sKm = sKm;
-        this.tMin = tMin;
-    }
-
-    //******* in progress ******
-    public Section(String startNodeName, String finishNodeName, double sKm, double tMin) throws ErrorNodesInit  {
-        if (startNodeName.equals(finishNodeName))
-            throw new ErrorNodesInit();
-
         this.sKm = sKm;
         this.tMin = tMin;
     }
@@ -62,14 +54,14 @@ public class Section<T> {
      * @return velocity on km/h unit
      */
     public double velocity() {
-        return sKm / (tMin * 60);
+        return sKm * 60 / tMin;
     }
 
     @Override
     public String toString() {
         String str =
-                "Start node: " + startNode + ", finish node " + finishNode +
-                        ", distance "+ sKm + " time " + tMin + ", velocity " + velocity();
+                "(From " + startNode + " to " + finishNode +
+                        ", distance "+ sKm + " km, time " + tMin + " min, velocity " + String.format("%1$,.2f", velocity()) + " km/h)";
 
         return str;
     }

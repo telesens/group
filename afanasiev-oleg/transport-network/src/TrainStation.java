@@ -10,15 +10,19 @@ public class TrainStation {
 
     @Override
     public String toString() {
-        String str = "Station name: " + name;
+        String str = "\"" + name + "\"";
 
         return str;
     }
 
     @Override
     public boolean equals(Object other) {
-        if (other == null) return false;
-        if (other == this) return true;
+        if (other == null)
+            return false;
+
+        if (other == this)
+            return true;
+
         if (!(other instanceof TrainStation))
             return false;
 
