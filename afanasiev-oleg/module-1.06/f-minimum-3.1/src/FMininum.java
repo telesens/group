@@ -1,27 +1,28 @@
 /**
  * Created by oleg on 11/20/15.
  */
-import java.util.function.DoubleFunction;
+import java.util.function.*;
 
 public class FMininum {
-    public static Double solveExplicit(double a, double b, double eps, DoubleFunction func) {
 
-        for (double xi = a; xi + eps <= b; xi += eps)
-            if (derivF(xi) < 0 &&  derivF(xi + eps) > 0)
-                return xi;
+    public static Double solve(double a, double b, double eps, DoubleUnaryOperator func) {
 
-        return null;
-    }
+        if (a > b) {
+            double tmp = b;
+            b = a;
+            a = tmp;
+        }
 
-    public static double solveNoname() {
-        return 0;
-    }
+        double min = func.applyAsDouble(a);
+        double fx;
 
-    public static double solveLambda() {
-        return 0;
-    }
+        for (double xi = a + eps; xi <= b; xi += eps) {
+            fx = func.applyAsDouble(xi);
+            if (fx < min) {
+                min = fx;
+            }
+        }
 
-    private static double derivF(double x) {
-        return 0;
+        return min;
     }
 }

@@ -73,7 +73,7 @@ public class TransportNetwork<T> {
     public Object[] getOrderedNodes() {
         Object[] orderedNodes = getAllNodes();
 
-        Arrays.sort(orderedNodes, (n1, n2) -> Integer.compare(countRelArcs((T) n1), countRelArcs((T) n2)));
+        Arrays.sort(orderedNodes, (n1, n2) -> Integer.compare(countRelArcsByNode((T) n1), countRelArcsByNode((T) n2)));
         return orderedNodes;
     }
 
@@ -86,7 +86,7 @@ public class TransportNetwork<T> {
             arcs.add(newArc);
     }
 
-    private int countRelArcs(T node) {
+    private int countRelArcsByNode(T node) {
         int count = 0;
 
         for (Arc arc : arcs) {
