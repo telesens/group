@@ -1,3 +1,5 @@
+package com.github.telesens.group.afanasiev;
+
 /**
  * Created by oleg on 11/20/15.
  */
@@ -59,10 +61,8 @@ public class Arc<T> {
 
     @Override
     public String toString() {
-        String str =
+        return
                 "(From " + startNode + " to " + finishNode +
                         ", distance "+ sKm + " km, time " + tMin + " min, velocity " + String.format("%1$,.2f", velocity()) + " km/h)";
-
-        return str;
     }
 }

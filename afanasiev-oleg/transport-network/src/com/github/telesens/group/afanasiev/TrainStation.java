@@ -1,3 +1,5 @@
+package com.github.telesens.group.afanasiev;
+
 /**
  * Created by oleg on 11/20/15.
  */
