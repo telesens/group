@@ -1,5 +1,3 @@
-import java.util.function.DoubleUnaryOperator;
-
 /**
  * Created by oleg on 11/21/15.
  */
