@@ -35,7 +35,7 @@ public class TransportNetwork<T> {
                     nodes.add(finishNode);
         }
 
-        return nodes;  //**** ???? may be not the best idea to return type 'Object'
+        return nodes; 
     }
 
     public Collection<Arc<T>> getAllArcs() {
@@ -43,30 +43,30 @@ public class TransportNetwork<T> {
     }
 
     public Collection<T> getNearestNodes(T srcNode) {
-        Collection<T> nodes = new ArrayList<>();
-        Collection<T> nodes1 = new ArrayList<>();
+        Collection<T> nodesNext = new ArrayList<>();
+        Collection<T> nodesNextAndNextByOne = new ArrayList<>();
         T nextNode;
 
         for (Arc<T> arc : arcs) {
             nextNode = arc.getOppositeNode(srcNode);
 
             if (nextNode != null)
-                nodes.add(nextNode);
+                nodesNext.add(nextNode);
         }
 
-        for (T node : nodes) {
-            if (!nodes1.contains(node))
-                nodes1.add(node);
+        for (T node : nodesNext) {
+            if (!nodesNextAndNextByOne.contains(node))
+                nodesNextAndNextByOne.add(node);
 
             for (Arc<T> arc : arcs) {
                 nextNode = arc.getOppositeNode(node);
 
-                if (nextNode != null && !nodes1.contains(nextNode) && !nextNode.equals(srcNode))
-                    nodes1.add(nextNode);
+                if (nextNode != null && !nodesNextAndNextByOne.contains(nextNode) && !nextNode.equals(srcNode))
+                    nodesNextAndNextByOne.add(nextNode);
             }
         }
 
-        return nodes1;
+        return nodesNextAndNextByOne;
     }
 
     public Collection<T> getOrderedNodes() {

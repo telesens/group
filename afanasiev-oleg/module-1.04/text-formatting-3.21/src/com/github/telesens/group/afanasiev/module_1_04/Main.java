@@ -1,3 +1,5 @@
+package com.github.telesens.group.afanasiev.module_1_04;
+
 import java.util.Arrays;
 
 /**
@@ -5,11 +7,10 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-<<<<<<< HEAD:afanasiev-oleg/theme-1.04/text-formatting-3.21/src/Main.java
-        int width = 60;
-=======
-        int width = 90;
->>>>>>> edd338aed7b5192e9c1231a6d4fdf44e8162e248:afanasiev-oleg/module-1.04/text-formatting-3.21/src/Main.java
+
+        int width = 40;
+
+
         String text =
                 "The cheetah (Acinonyx jubatus) is a big cat in the subfamily Felinae that inhabits most of Africa and parts of Iran. " +
                         " It is the only extant member of the genus Acinonyx. The cheetah can run as fast as 109.4 to 120.7 km/h (68.0 to 75.0 mph), " +
@@ -57,30 +58,6 @@ public class Main {
         System.out.println(lineStr);
     }
 
-    private static StringBuilder justifyOld(StringBuilder line, int width) {
-        int needAddSpaces = width - line.toString().trim().length();
-
-        if (needAddSpaces == 0)
-            return line;
-
-        String[] words = line.toString().trim().split(" ");
-        if (words.length < 2)
-            return line;
-
-        line.setLength(0);
-
-        for (int i = 0; i < words.length; i++) {
-            line.append(words[i] + " ");
-
-            if (needAddSpaces > 0) {
-                line.append(" ");
-                needAddSpaces--;
-            }
-        }
-
-        return justifyOld(line, width);
-    }
-
     private static String justify(String line, int width) {
         int nInseredSpaces = width - line.trim().length();
 
@@ -111,29 +88,5 @@ public class Main {
         }
 
         return lineSB.toString();
-    }
-
-    private static StringBuilder justifyOptim(StringBuilder line, int width) {
-        int needAddSpaces = width - line.toString().trim().length();
-
-        if (needAddSpaces == 0)
-            return line;
-
-        String[] words = line.toString().trim().split(" ");
-        if (words.length < 2)
-            return line;
-
-        line.setLength(0);
-
-        for (int i = 0; i < words.length; i++) {
-            line.append(words[i] + " ");
-
-            if (needAddSpaces > 0) {
-                line.append(" ");
-                needAddSpaces--;
-            }
-        }
-
-        return line;
     }
 }
