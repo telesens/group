@@ -30,7 +30,7 @@ public class MatrixArr2D extends AbstractMatrix {
         if (r <= 0 || r > size() || c <= 0 || c > size())
             throw new ArrayIndexOutOfBoundsException();
 
-        return arr2D[r - 1 + rowOffset(r)][c - 1 + colOffset(c)];
+        return arr2D[r - 1 + rowMinorOffset(r)][c - 1 + colMinorOffset(c)];
     }
 
     @Override
@@ -38,21 +38,21 @@ public class MatrixArr2D extends AbstractMatrix {
         if (r <= 0 || r > size() || c <= 0 || c > size())
             throw new ArrayIndexOutOfBoundsException();
 
-        arr2D[r - 1 + rowOffset(r)][c - 1 + colOffset(c)] = val;
+        arr2D[r - 1 + rowMinorOffset(r)][c - 1 + colMinorOffset(c)] = val;
     }
 
     @Override
     public int size() {
-        return arr2D.length - rowOffset(excludedRows.length);
+        return arr2D.length - rowMinorOffset(excludedRows.length);
     }
 
     @Override
-    protected MatrixArr2D getM(int r, int c) {
+    protected MatrixArr2D getMinorMatrix(int r, int c) {
         boolean[] excludedRowsForM = Arrays.copyOf(excludedRows, excludedRows.length);
         boolean[] excludedColsForM = Arrays.copyOf(excludedCols, excludedCols.length);
 
-        excludedRowsForM[r - 1 + rowOffset(r)] = true;
-        excludedColsForM[c - 1 + colOffset(c)] = true;
+        excludedRowsForM[r - 1 + rowMinorOffset(r)] = true;
+        excludedColsForM[c - 1 + colMinorOffset(c)] = true;
 
         return new MatrixArr2D(arr2D, excludedRowsForM, excludedColsForM);
     }
@@ -62,7 +62,7 @@ public class MatrixArr2D extends AbstractMatrix {
         return new MatrixArr2D(size());
     }
 
-    private int rowOffset(int r) {
+    private int rowMinorOffset(int r) {
         int offset = 0;
         for (int i = 0, j = 1; i < excludedRows.length && j <= r; i++) {
             if (excludedRows[i])
@@ -73,7 +73,7 @@ public class MatrixArr2D extends AbstractMatrix {
         return offset;
     }
 
-    private int colOffset(int c) {
+    private int colMinorOffset(int c) {
         int offset = 0;
         for (int i = 0, j = 1; i < excludedCols.length && j <= c; i++) {
             if (excludedCols[i])

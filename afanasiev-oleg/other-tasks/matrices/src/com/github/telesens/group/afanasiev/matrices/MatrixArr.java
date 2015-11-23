@@ -27,44 +27,46 @@ public class MatrixArr extends AbstractMatrix {
 
     @Override
     public double get(int r, int c) {
-//        if (r <= 0 || r > size() || c <= 0 || c > size())
-//            throw new ArrayIndexOutOfBoundsException();
+        if (r <= 0 || r > size() || c <= 0 || c > size())
+            throw new ArrayIndexOutOfBoundsException();
 
-        int ind = (r - 1 + rowOffset(r)) * size() + c + colOffset(c) - 1;
+        int l = (int)Math.sqrt(arr.length);
+        int ind = (r - 1 + rowMinorOffset(r)) * l + c - 1 + colMinorOffset(c);
         return arr[ind];
     }
 
     @Override
     public void set(double val, int r, int c) {
-//        if (r <= 0 || r > size() || c <= 0 || c > size())
-//            throw new ArrayIndexOutOfBoundsException();
+        if (r <= 0 || r > size() || c <= 0 || c > size())
+            throw new ArrayIndexOutOfBoundsException();
 
-        int ind = (r + rowOffset(r) - 1) * size() + c + colOffset(c) - 1;
+        int l = (int)Math.sqrt(arr.length);
+        int ind = (r - 1 + rowMinorOffset(r)) * l + c - 1 + colMinorOffset(c);
         arr[ind] = val;
     }
 
     @Override
     public int size() {
-        return (int)Math.sqrt(arr.length) - rowOffset(excludedRows.length);
+        return (int)Math.sqrt(arr.length) - rowMinorOffset(excludedRows.length);
     }
 
     @Override
-    protected MatrixArr getM(int r, int c) {
+    protected MatrixArr getMinorMatrix(int r, int c) {
         boolean[] excludedRowsForM = Arrays.copyOf(excludedRows, excludedRows.length);
         boolean[] excludedColsForM = Arrays.copyOf(excludedCols, excludedCols.length);
 
-        excludedRowsForM[r - 1 + rowOffset(r)] = true;
-        excludedColsForM[c - 1 + colOffset(c)] = true;
+        excludedRowsForM[r - 1 + rowMinorOffset(r)] = true;
+        excludedColsForM[c - 1 + colMinorOffset(c)] = true;
 
         return new MatrixArr(arr, excludedRowsForM, excludedColsForM);
     }
 
     @Override
     protected  MatrixArr createMatrix() {
-        return new MatrixArr(size() * size());
+        return new MatrixArr(size());
     }
 
-    private int rowOffset(int r) {
+    private int rowMinorOffset(int r) {
         int offset = 0;
         for (int i = 0, j = 1; i < excludedRows.length && j <= r; i++) {
             if (excludedRows[i])
@@ -75,7 +77,7 @@ public class MatrixArr extends AbstractMatrix {
         return offset;
     }
 
-    private int colOffset(int c) {
+    private int colMinorOffset(int c) {
         int offset = 0;
         for (int i = 0, j = 1; i < excludedCols.length && j <= c; i++) {
             if (excludedCols[i])
