@@ -12,6 +12,22 @@ public class Simple {
         this.price = price;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return String.format("%s - %.2f UAH", name, price);

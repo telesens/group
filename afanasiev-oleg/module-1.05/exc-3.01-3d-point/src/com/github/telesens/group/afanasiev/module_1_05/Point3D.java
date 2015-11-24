@@ -16,6 +16,24 @@ public class Point3D {
         return Math.sqrt(x * x + y * y + z * z);
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public void set(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     public static double distance(Point3D p1, Point3D p2) {
         return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) +
                 (p1.y - p2.y) * (p1.y - p2.y) +
