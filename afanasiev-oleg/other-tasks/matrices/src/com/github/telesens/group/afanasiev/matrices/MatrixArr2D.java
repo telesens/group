@@ -1,60 +1,35 @@
 package com.github.telesens.group.afanasiev.matrices;
-
-import java.util.Arrays;
-
 /**
  * Created by oleg on 11/23/15.
  */
-public class MatrixArr2D extends AbstractMatrix {
+public class MatrixArr2D extends AbstractMinorMatrix {
     private double[][] arr2D;
-    private boolean[] excludedRows;
-    private boolean[] excludedCols;
 
-    public MatrixArr2D(int n) {
-        if (n < 0)
-            throw new NegativeArraySizeException();
+    public MatrixArr2D(int size) {
+        super(size);
 
-        arr2D = new double[n][n];
-        excludedRows = new boolean[n];
-        excludedCols = new boolean[n];
+        arr2D = new double[size][size];
     }
 
-    private MatrixArr2D(double[][] arr2D, boolean[] excludedRows, boolean[] excludedCols) {
-        this.arr2D = arr2D;
-        this.excludedRows = excludedRows;
-        this.excludedCols = excludedCols;
+    private MatrixArr2D(MatrixArr2D extendedMatrix, int excludedRow, int excludedCol) {
+        super(extendedMatrix, excludedRow, excludedCol);
+        this.arr2D = extendedMatrix.arr2D;
     }
 
     @Override
-    public double get(int r, int c) {
-        if (r <= 0 || r > size() || c <= 0 || c > size())
+    public double get(int row, int col) {
+        if (row <= 0 || row > size() || col <= 0 || col > size())
             throw new ArrayIndexOutOfBoundsException();
 
-        return arr2D[r - 1 + rowMinorOffset(r)][c - 1 + colMinorOffset(c)];
+        return arr2D[getRow(row) - 1][getCol(col) - 1];
     }
 
     @Override
-    public void set(double val, int r, int c) {
-        if (r <= 0 || r > size() || c <= 0 || c > size())
+    public void set(double val, int row, int col) {
+        if (row <= 0 || row > size() || col <= 0 || col > size())
             throw new ArrayIndexOutOfBoundsException();
 
-        arr2D[r - 1 + rowMinorOffset(r)][c - 1 + colMinorOffset(c)] = val;
-    }
-
-    @Override
-    public int size() {
-        return arr2D.length - rowMinorOffset(excludedRows.length);
-    }
-
-    @Override
-    protected MatrixArr2D getMinorMatrix(int r, int c) {
-        boolean[] excludedRowsForM = Arrays.copyOf(excludedRows, excludedRows.length);
-        boolean[] excludedColsForM = Arrays.copyOf(excludedCols, excludedCols.length);
-
-        excludedRowsForM[r - 1 + rowMinorOffset(r)] = true;
-        excludedColsForM[c - 1 + colMinorOffset(c)] = true;
-
-        return new MatrixArr2D(arr2D, excludedRowsForM, excludedColsForM);
+        arr2D[getRow(row) - 1][getCol(col) - 1] = val;
     }
 
     @Override
@@ -62,26 +37,8 @@ public class MatrixArr2D extends AbstractMatrix {
         return new MatrixArr2D(size());
     }
 
-    private int rowMinorOffset(int r) {
-        int offset = 0;
-        for (int i = 0, j = 1; i < excludedRows.length && j <= r; i++) {
-            if (excludedRows[i])
-                offset++;
-            else
-                j++;
-        }
-        return offset;
+    @Override
+    protected MatrixArr2D getMinorMatrix(int row, int col) {
+        return new MatrixArr2D(this, row, col);
     }
-
-    private int colMinorOffset(int c) {
-        int offset = 0;
-        for (int i = 0, j = 1; i < excludedCols.length && j <= c; i++) {
-            if (excludedCols[i])
-                offset++;
-            else
-                j++;
-        }
-        return offset;
-    }
-
 }

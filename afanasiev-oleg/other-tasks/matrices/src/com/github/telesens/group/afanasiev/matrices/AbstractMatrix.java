@@ -32,7 +32,7 @@ public abstract class AbstractMatrix extends ArithmeticException {
         double det = determinant();
 
         if (det == 0)
-            throw new ArithmeticException("\"Division by zero!\"");
+            throw new ArithmeticException("\"Determinant is zero!\"");
 
         for (int r = 1; r <= size(); r++)
             for (int c = 1; c <= size(); c++) {
@@ -44,16 +44,16 @@ public abstract class AbstractMatrix extends ArithmeticException {
     }
 
     public AbstractMatrix mult(AbstractMatrix matr) {
-        AbstractMatrix invM = createMatrix();
+        AbstractMatrix multMatrix = createMatrix();
         double m;
 
         for (int r = 1; r <= size(); r++)
             for (int c = 1; c <= size(); c++) {
                 m = multEl(matr, r, c);
-                invM.set(m, r, c);
+                multMatrix.set(m, r, c);
             }
 
-        return invM;
+        return multMatrix;
     }
 
     @Override

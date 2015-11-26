@@ -1,90 +1,48 @@
 package com.github.telesens.group.afanasiev.matrices;
-
-import java.util.Arrays;
-
 /**
  * Created by oleg on 11/23/15.
  */
-public class MatrixArr extends AbstractMatrix {
+public class MatrixArr extends AbstractMinorMatrix {
     private double[] arr;
-    private boolean[] excludedRows;
-    private boolean[] excludedCols;
 
-    public MatrixArr(int n) {
-        if (n < 0)
-            throw new NegativeArraySizeException();
+    public MatrixArr(int size) {
+        super(size);
 
-        arr = new double[n * n];
-        excludedRows = new boolean[n];
-        excludedCols = new boolean[n];
+        arr = new double[size * size];
     }
 
-    private MatrixArr(double[] arr, boolean[] excludedRows, boolean[] excludedCols) {
-        this.arr = arr;
-        this.excludedRows = excludedRows;
-        this.excludedCols = excludedCols;
+    private MatrixArr(MatrixArr extendedMatrix, int excludedRow, int excludedCol) {
+        super(extendedMatrix, excludedRow, excludedCol);
+        this.arr = extendedMatrix.arr;
     }
 
     @Override
-    public double get(int r, int c) {
-        if (r <= 0 || r > size() || c <= 0 || c > size())
+    public double get(int row, int col) {
+        if (row <= 0 || row > size() || col <= 0 || col > size())
             throw new ArrayIndexOutOfBoundsException();
 
         int l = (int)Math.sqrt(arr.length);
-        int ind = (r - 1 + rowMinorOffset(r)) * l + c - 1 + colMinorOffset(c);
+        int ind = (getRow(row) - 1) * l + getCol(col) - 1;
         return arr[ind];
     }
 
     @Override
-    public void set(double val, int r, int c) {
-        if (r <= 0 || r > size() || c <= 0 || c > size())
+    public void set(double val, int row, int col) {
+        if (row <= 0 || row > size() || col <= 0 || col > size())
             throw new ArrayIndexOutOfBoundsException();
 
         int l = (int)Math.sqrt(arr.length);
-        int ind = (r - 1 + rowMinorOffset(r)) * l + c - 1 + colMinorOffset(c);
+        int ind = (getRow(row) - 1) * l + getCol(col) - 1;
         arr[ind] = val;
     }
 
     @Override
-    public int size() {
-        return (int)Math.sqrt(arr.length) - rowMinorOffset(excludedRows.length);
-    }
-
-    @Override
-    protected MatrixArr getMinorMatrix(int r, int c) {
-        boolean[] excludedRowsForM = Arrays.copyOf(excludedRows, excludedRows.length);
-        boolean[] excludedColsForM = Arrays.copyOf(excludedCols, excludedCols.length);
-
-        excludedRowsForM[r - 1 + rowMinorOffset(r)] = true;
-        excludedColsForM[c - 1 + colMinorOffset(c)] = true;
-
-        return new MatrixArr(arr, excludedRowsForM, excludedColsForM);
+    protected MatrixArr getMinorMatrix(int row, int col) {
+        return new MatrixArr(this, row, col);
     }
 
     @Override
     protected  MatrixArr createMatrix() {
         return new MatrixArr(size());
-    }
-
-    private int rowMinorOffset(int r) {
-        int offset = 0;
-        for (int i = 0, j = 1; i < excludedRows.length && j <= r; i++) {
-            if (excludedRows[i])
-                offset++;
-            else
-                j++;
-        }
-        return offset;
-    }
-
-    private int colMinorOffset(int c) {
-        int offset = 0;
-        for (int i = 0, j = 1; i < excludedCols.length && j <= c; i++) {
-            if (excludedCols[i])
-                offset++;
-            else
-                j++;
-        }
-        return offset;
     }
 }
