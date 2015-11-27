@@ -1,6 +1,4 @@
 package com.github.telesens.group.afanasiev.module_1_05;
-
-import java.util.Formatter;
 import java.util.Random;
 
 /**
