@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int width = 40;
+        int width = 70;
 
 
         String text =
