@@ -10,6 +10,8 @@ public abstract class AbstractMatrix extends ArithmeticException {
     public abstract int size();
 
     protected abstract AbstractMatrix getMinorMatrix(int r, int c);
+    protected abstract int getR(int row);
+    protected abstract int getC(int col);
     protected abstract AbstractMatrix createMatrix();
 
     public double determinant() {
@@ -19,7 +21,7 @@ public abstract class AbstractMatrix extends ArithmeticException {
         double det = 0;
 
         for (int k = 1; k <= size(); k++) {
-            det += (Math.pow(-1, k - 1) * get(1, k) * getMinorMatrix(1, k).determinant());
+            det += (Math.pow(-1, k - 1) * get(getR(1), getC(k)) * getMinorMatrix(1, k).determinant());
         }
 
         return det;
@@ -36,7 +38,7 @@ public abstract class AbstractMatrix extends ArithmeticException {
 
         for (int r = 1; r <= size(); r++)
             for (int c = 1; c <= size(); c++) {
-                A = Math.pow(-1, r + c) * getMinorMatrix(r, c).determinant();
+                A = Math.pow(-1, r + c) * getMinorMatrix(getR(r), getC(c)).determinant();
                 invM.set(A/det, c, r);
             }
 
