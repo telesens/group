@@ -2,47 +2,44 @@ package com.github.telesens.group.afanasiev.matrices;
 /**
  * Created by oleg on 11/23/15.
  */
-public class MatrixArr extends AbstractMinorMatrix {
+public class MatrixArr extends AbstractMatrix {
     private double[] arr;
+    private int size;
 
     public MatrixArr(int size) {
-        super(size);
+        if (size <= 0 || size > 64)
+            throw new NegativeArraySizeException("Incorrect size of array");
 
+        this.size = size;
         arr = new double[size * size];
     }
 
-    private MatrixArr(MatrixArr extendedMatrix, int excludedRow, int excludedCol) {
-        super(extendedMatrix, excludedRow, excludedCol);
-        this.arr = extendedMatrix.arr;
-    }
-
     @Override
-    public double get(int row, int col) {
-        if (row <= 0 || row > size() || col <= 0 || col > size())
+    public double getEl(int row, int col) {
+        if (row <= 0 || row > size || col <= 0 || col > size)
             throw new ArrayIndexOutOfBoundsException();
 
         int l = (int)Math.sqrt(arr.length);
-        int ind = (getRow(row) - 1) * l + getCol(col) - 1;
+        int ind = (row - 1) * l + col - 1;
         return arr[ind];
     }
 
     @Override
-    public void set(double val, int row, int col) {
-        if (row <= 0 || row > size() || col <= 0 || col > size())
+    public void setEl(double val, int row, int col) {
+        if (row <= 0 || row > getSize() || col <= 0 || col > getSize())
             throw new ArrayIndexOutOfBoundsException();
 
-        int l = (int)Math.sqrt(arr.length);
-        int ind = (getRow(row) - 1) * l + getCol(col) - 1;
+        int ind = (row - 1) * size + col - 1;
         arr[ind] = val;
     }
 
     @Override
-    protected MatrixArr getMinorMatrix(int row, int col) {
-        return new MatrixArr(this, row, col);
+    public int getSize() {
+        return size;
     }
 
     @Override
-    protected  MatrixArr createMatrix() {
-        return new MatrixArr(size());
+    protected  MatrixArr createMatrix(int size) {
+        return new MatrixArr(size);
     }
 }

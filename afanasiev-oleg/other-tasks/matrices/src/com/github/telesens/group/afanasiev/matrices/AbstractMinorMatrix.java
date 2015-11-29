@@ -34,7 +34,7 @@ public abstract class AbstractMinorMatrix extends AbstractMatrix {
     }
 
     @Override
-    public int size() {
+    public int getSize() {
         return excludedRows.length - rowMinorOffset(excludedRows.length);
     }
 
