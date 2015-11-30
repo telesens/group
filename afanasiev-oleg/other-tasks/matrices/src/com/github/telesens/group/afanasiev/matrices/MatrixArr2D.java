@@ -16,18 +16,18 @@ public class MatrixArr2D extends AbstractMatrix {
 
     @Override
     public double getEl(int row, int col) {
-        if (row <= 0 || row > size || col <= 0 || col > size)
+        if (row < 0 || row >= size || col < 0 || col >= size)
             throw new ArrayIndexOutOfBoundsException();
 
-        return arr2D[row - 1][col - 1];
+        return arr2D[row][col];
     }
 
     @Override
     public void setEl(double val, int row, int col) {
-        if (row <= 0 || row > size || col <= 0 || col > size)
+        if (row < 0 || row >= size || col < 0 || col >= size)
             throw new ArrayIndexOutOfBoundsException();
 
-        arr2D[row - 1][col - 1] = val;
+        arr2D[row][col] = val;
     }
 
     @Override
