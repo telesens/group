@@ -8,7 +8,7 @@ import com.github.telesens.group.afanasiev.module_1_03.Fibonacci;
 public class Main {
     public static void main(String[] args) {
         Fibonacci fib = new Fibonacci();
-        int nMax = 90;
+        int nMax = 92;
         long FnIter;
         long FnRecurs;
 
