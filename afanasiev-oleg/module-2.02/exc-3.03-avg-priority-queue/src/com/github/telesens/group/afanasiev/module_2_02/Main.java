@@ -6,6 +6,7 @@ import java.util.*;
  * Created by oleg on 12/1/15.
  */
 public class Main {
+
     private static final int N = 5;
     private static Queue<Double> numbers;
 
@@ -53,6 +54,6 @@ public class Main {
         }
         System.out.println("]");
 
-        System.out.printf("AVG = %.2f %n", sum/n);
+        System.out.printf("AVG = %.2f %n", sum / n);
     }
 }
