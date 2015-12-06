@@ -1,0 +1,2 @@
+The numbers ordered by descend: 
+32 24 22 11 9 7 6 6 5 4 3 3 1 
