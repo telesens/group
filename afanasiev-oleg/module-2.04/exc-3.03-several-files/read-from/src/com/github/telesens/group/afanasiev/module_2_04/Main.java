@@ -50,7 +50,6 @@ public class Main {
             while (queue.peek() != null)
                 pw.printf("%d ", queue.poll());
 
-            pw.close();
         } catch(IOException exc) {
             exc.printStackTrace();
         }

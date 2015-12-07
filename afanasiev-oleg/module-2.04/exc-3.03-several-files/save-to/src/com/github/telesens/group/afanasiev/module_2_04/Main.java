@@ -35,7 +35,6 @@ public class Main {
                     unevenList.add(nextInt);
             }
 
-            scanner.close();
         } catch(IOException | NoSuchElementException exc) {
             exc.printStackTrace();
         }
