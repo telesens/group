@@ -16,6 +16,7 @@ public class InsertionSort implements  Runnable {
             for (int i = 1; i < arr.length; i++) {
                 insert(arr[i], i);
                 Array.print("Insertion", arr);
+                Thread.sleep(150);
             }
         } catch (InterruptedException exc) {
             exc.printStackTrace();

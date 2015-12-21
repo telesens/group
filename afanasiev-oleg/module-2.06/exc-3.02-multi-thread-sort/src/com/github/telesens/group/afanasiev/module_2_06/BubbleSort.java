@@ -22,6 +22,7 @@ public class BubbleSort implements Runnable {
                     }
                 }
                 Array.print("Bubble", arr);
+                Thread.sleep(100);
             }
         } catch (InterruptedException exc) {
             exc.printStackTrace();

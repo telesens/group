@@ -22,6 +22,7 @@ public class SelectionSort implements Runnable {
                     arr[iMin] = arr[i]^arr[iMin];
                     arr[i] = arr[i]^arr[iMin];
                     Array.print("Selection", arr);
+                    Thread.sleep(200);
                 }
             }
         } catch (InterruptedException exc) {

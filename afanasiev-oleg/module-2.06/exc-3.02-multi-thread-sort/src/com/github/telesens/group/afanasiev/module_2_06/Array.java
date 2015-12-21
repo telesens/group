@@ -9,7 +9,7 @@ public class Array {
         System.out.println(name + " sort: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
-            Thread.sleep(100);
+            Thread.sleep(50);
         }
 
         System.out.println();
