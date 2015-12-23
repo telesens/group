@@ -1,0 +1,63 @@
+
+List of applicants 
+
+***** Olegjan Afanasiev ***** 
+email: oleg.kh81@gmail.com 
+skills:  
+  C#                   
+  Java                 
+  C++                  
+  Scheme               
+  JavaScript           
+  PHP                  
+total: 6 
+
+***** Alexandr Bulbin ***** 
+email: alex@gmail.com 
+skills:  
+  Java                 
+  C++                  
+  JavaScript           
+  php                  
+  Delphi               
+  Lisp                 
+total: 6 
+
+***** Liza Ivanova ***** 
+email: liza@gmail.com 
+skills:  
+  Java                 
+  C++                  
+  PHP                  
+  Python               
+total: 4 
+
+***** Helen Panina ***** 
+email: helen@gmail.com 
+skills:  
+  Java                 
+  C++                  
+  JavaScript           
+  php                  
+  Objective C          
+  Rubby                
+total: 6 
+
+***** Kolya Petrov ***** 
+email: kolya@gmail.com 
+skills:  
+  Java                 
+  C++                  
+  Assembler            
+  Rubby                
+total: 4 
+
+***** Peter Sidorov ***** 
+email: peter@gmail.com 
+skills:  
+  C#                   
+  PHP                  
+  Perl                 
+  F#                   
+total: 4 
+

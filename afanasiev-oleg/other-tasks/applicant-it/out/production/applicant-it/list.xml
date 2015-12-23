@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_60" class="java.beans.XMLDecoder">
+ <object class="com.telesens.afanasiev.ListApplicants">
+  <void property="listApplicants">
+   <object class="java.util.TreeMap">
+    <void method="put">
+     <long>1</long>
+     <object class="com.telesens.afanasiev.ApplicantIT">
+      <void property="ID">
+       <long>1</long>
+      </void>
+      <void property="email">
+       <string>oleg.kh81@gmail.com</string>
+      </void>
+      <void property="firstName">
+       <string>Olegjan</string>
+      </void>
+      <void property="itLanguages">
+       <object class="java.util.HashSet">
+        <void method="add">
+         <string>C#</string>
+        </void>
+        <void method="add">
+         <string>Java</string>
+        </void>
+        <void method="add">
+         <string>C++</string>
+        </void>
+        <void method="add">
+         <string>Scheme</string>
+        </void>
+        <void method="add">
+         <string>JavaScript</string>
+        </void>
+        <void method="add">
+         <string>PHP</string>
+        </void>
+       </object>
+      </void>
+      <void property="lastName">
+       <string>Afanasiev</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <long>2</long>
+     <object class="com.telesens.afanasiev.ApplicantIT">
+      <void property="ID">
+       <long>2</long>
+      </void>
+      <void property="email">
+       <string>kolya@gmail.com</string>
+      </void>
+      <void property="firstName">
+       <string>Kolya</string>
+      </void>
+      <void property="itLanguages">
+       <object class="java.util.HashSet">
+        <void method="add">
+         <string>Java</string>
+        </void>
+        <void method="add">
+         <string>C++</string>
+        </void>
+        <void method="add">
+         <string>Assembler</string>
+        </void>
+        <void method="add">
+         <string>Rubby</string>
+        </void>
+       </object>
+      </void>
+      <void property="lastName">
+       <string>Petrov</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <long>3</long>
+     <object class="com.telesens.afanasiev.ApplicantIT">
+      <void property="ID">
+       <long>3</long>
+      </void>
+      <void property="email">
+       <string>peter@gmail.com</string>
+      </void>
+      <void property="firstName">
+       <string>Peter</string>
+      </void>
+      <void property="itLanguages">
+       <object class="java.util.HashSet">
+        <void method="add">
+         <string>C#</string>
+        </void>
+        <void method="add">
+         <string>PHP</string>
+        </void>
+        <void method="add">
+         <string>Perl</string>
+        </void>
+        <void method="add">
+         <string>F#</string>
+        </void>
+       </object>
+      </void>
+      <void property="lastName">
+       <string>Sidorov</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <long>4</long>
+     <object class="com.telesens.afanasiev.ApplicantIT">
+      <void property="ID">
+       <long>4</long>
+      </void>
+      <void property="email">
+       <string>liza@gmail.com</string>
+      </void>
+      <void property="firstName">
+       <string>Liza</string>
+      </void>
+      <void property="itLanguages">
+       <object class="java.util.HashSet">
+        <void method="add">
+         <string>Java</string>
+        </void>
+        <void method="add">
+         <string>C++</string>
+        </void>
+        <void method="add">
+         <string>PHP</string>
+        </void>
+        <void method="add">
+         <string>Python</string>
+        </void>
+       </object>
+      </void>
+      <void property="lastName">
+       <string>Ivanova</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <long>5</long>
+     <object class="com.telesens.afanasiev.ApplicantIT">
+      <void property="ID">
+       <long>5</long>
+      </void>
+      <void property="email">
+       <string>alex@gmail.com</string>
+      </void>
+      <void property="firstName">
+       <string>Alexandr</string>
+      </void>
+      <void property="itLanguages">
+       <object class="java.util.HashSet">
+        <void method="add">
+         <string>Java</string>
+        </void>
+        <void method="add">
+         <string>C++</string>
+        </void>
+        <void method="add">
+         <string>JavaScript</string>
+        </void>
+        <void method="add">
+         <string>php</string>
+        </void>
+        <void method="add">
+         <string>Delphi</string>
+        </void>
+        <void method="add">
+         <string>Lisp</string>
+        </void>
+       </object>
+      </void>
+      <void property="lastName">
+       <string>Bulbin</string>
+      </void>
+     </object>
+    </void>
+    <void method="put">
+     <long>6</long>
+     <object class="com.telesens.afanasiev.ApplicantIT">
+      <void property="ID">
+       <long>6</long>
+      </void>
+      <void property="email">
+       <string>helen@gmail.com</string>
+      </void>
+      <void property="firstName">
+       <string>Helen</string>
+      </void>
+      <void property="itLanguages">
+       <object class="java.util.HashSet">
+        <void method="add">
+         <string>Java</string>
+        </void>
+        <void method="add">
+         <string>C++</string>
+        </void>
+        <void method="add">
+         <string>JavaScript</string>
+        </void>
+        <void method="add">
+         <string>php</string>
+        </void>
+        <void method="add">
+         <string>Objective C</string>
+        </void>
+        <void method="add">
+         <string>Rubby</string>
+        </void>
+       </object>
+      </void>
+      <void property="lastName">
+       <string>Panina</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
