@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_60" class="java.beans.XMLDecoder">
+ <object class="com.telesens.afanasiev.module_2_06.Group" id="Group0">
+  <void property="name">
+   <string>MM-121</string>
+  </void>
+  <void property="students">
+   <void method="add">
+    <object class="com.telesens.afanasiev.module_2_06.Student">
+     <void property="age">
+      <int>34</int>
+     </void>
+     <void property="email">
+      <string>oleg.kh34@gmail.com</string>
+     </void>
+     <void property="name">
+      <string>Oleg</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.telesens.afanasiev.module_2_06.Student">
+     <void property="age">
+      <int>45</int>
+     </void>
+     <void property="email">
+      <string>kolya.kh45@gmail.com</string>
+     </void>
+     <void property="name">
+      <string>Kolya</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.telesens.afanasiev.module_2_06.Student">
+     <void property="age">
+      <int>12</int>
+     </void>
+     <void property="email">
+      <string>liza.kh12@gmail.com</string>
+     </void>
+     <void property="name">
+      <string>Liza</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.telesens.afanasiev.module_2_06.Student">
+     <void property="age">
+      <int>23</int>
+     </void>
+     <void property="email">
+      <string>alex.kh23@gmail.com</string>
+     </void>
+     <void property="name">
+      <string>Alex</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.telesens.afanasiev.module_2_06.Student">
+     <void property="age">
+      <int>22</int>
+     </void>
+     <void property="email">
+      <string>mikle.kh22@gmail.com</string>
+     </void>
+     <void property="name">
+      <string>Mikle</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.telesens.afanasiev.module_2_06.Student">
+     <void property="age">
+      <int>18</int>
+     </void>
+     <void property="email">
+      <string>helen.kh18@gmail.com</string>
+     </void>
+     <void property="name">
+      <string>Helen</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
