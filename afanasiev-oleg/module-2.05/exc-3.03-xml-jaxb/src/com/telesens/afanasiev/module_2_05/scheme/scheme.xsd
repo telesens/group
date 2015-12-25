@@ -9,7 +9,7 @@
                 <xs:element name="districts">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="district">
+                            <xs:element name="district" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="xs:string">

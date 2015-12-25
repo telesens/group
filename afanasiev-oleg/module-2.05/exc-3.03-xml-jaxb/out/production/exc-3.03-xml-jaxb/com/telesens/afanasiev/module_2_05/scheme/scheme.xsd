@@ -8,8 +8,8 @@
                 <xs:element name="country" type="xs:string" maxOccurs="1"/>
                 <xs:element name="districts">
                     <xs:complexType>
-                        <xs:choice>
-                            <xs:element name="district">
+                        <xs:sequence>
+                            <xs:element name="district" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="xs:string">
@@ -18,7 +18,7 @@
                                     </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
-                        </xs:choice>
+                        </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
