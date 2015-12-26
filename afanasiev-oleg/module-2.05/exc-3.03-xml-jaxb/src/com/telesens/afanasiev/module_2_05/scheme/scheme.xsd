@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:attribute name="population" type="xs:int" />
+    <xs:element name="city">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" maxOccurs="1" default="Харьков" />
+                <xs:element name="country" type="xs:string" maxOccurs="1"/>
+                <xs:element name="districts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="district" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute ref="population" use="optional" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute ref="population" use="optional" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<city population="1900000">
+    <name>Харьков</name>
+    <country>Украина</country>
+    <districts>
+        <district population="400000">Салтовка</district>
+        <district population="50000">Центр</district>
+        <district population="25000">Журавлевка</district>
+        <district population="120000">Павлово Поле</district>
+    </districts>
+</city>

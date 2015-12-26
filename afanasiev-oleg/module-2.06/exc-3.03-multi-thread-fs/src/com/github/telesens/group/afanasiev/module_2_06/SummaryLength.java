@@ -7,32 +7,34 @@ import java.util.Map;
  */
 public class SummaryLength implements Runnable {
 
-    long totalLenght = 0;
+    private long prevLenght = 0;
     private FileCollector fc;
-    Thread tfc;
+    private boolean finish = false;
 
-    public SummaryLength(FileCollector fc, Thread tfc) {
+    public SummaryLength(FileCollector fc) {
         this.fc = fc;
-        this.tfc = tfc;
+    }
+
+    public void finish() {
+        this.finish = true;
     }
 
     @Override
     public void run() {
-        try {
-            tfc.join();
-        } catch(InterruptedException exc) {
-            exc.printStackTrace();
-        }
 
-        long length = 0;
-        for (Map.Entry<String, Long> entry : FileCollector.files.entrySet()) {
-            length += entry.getValue();
-        }
+        while(true) {
+            long length = 0;
+            for (Map.Entry<String, Long> entry : FileCollector.files.entrySet()) {
+                length += entry.getValue();
+            }
 
-        if (length != totalLenght) {
-            totalLenght = length;
-            System.out.println(fc);
-            System.out.println("Total length = " + totalLenght);
+            if (length != prevLenght) {
+                prevLenght = length;
+                System.out.println("               Total length = " + prevLenght);
+            }
+
+            if (finish)
+                break;
         }
     }
 }

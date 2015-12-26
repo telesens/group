@@ -14,16 +14,18 @@ public class Main {
 
         System.out.println("---------Multithreading---------");
         FileCollector fc = new FileCollector();
+        SummaryLength sl = new SummaryLength(fc);
         Thread tfc = new Thread(fc);
-        Thread tsl = new Thread(new SummaryLength(fc, tfc));
+        Thread tsl = new Thread(sl);
 
         tfc.start();
         tsl.start();
 
-//        try {
-//            tsl.join();
-//        } catch(InterruptedException exc) {
-//            exc.printStackTrace();
-//        }
+        try {
+            tfc.join();
+            sl.finish();
+        } catch(InterruptedException exc) {
+            exc.printStackTrace();
+        }
     }
 }

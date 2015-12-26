@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="MM-121">
+    <nstudents>5</nstudents>
+    <student>
+        <name>Oleg</name>
+        <age>34</age>
+        <email>oleg.kh81@gmail.com</email>
+    </student>
+
+    <student>
+        <name>Andry</name>
+        <age>37</age>
+        <email>andry@gmail.com</email>
+    </student>
+
+    <student>
+        <name>Mikle</name>
+        <age>22</age>
+        <email>mikle@gmail.com</email>
+    </student>
+
+    <student>
+        <name>Katya</name>
+        <age>19</age>
+        <email>kate@gmail.com</email>
+    </student>
+
+    <student>
+        <name>Alex</name>
+        <age>18</age>
+        <email>alex@gmail.com</email>
+    </student>
+</group>
