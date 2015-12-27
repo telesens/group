@@ -14,7 +14,7 @@ public class Main {
     private static ConcurrentSkipListMap<String, BasicFileAttributes> listFiles;
 
     public static void main(String[] args) throws InterruptedException{
-        System.out.println("---------------File search engine------------/n");
+        System.out.println("---------------File search engine------------\n");
         System.out.println("           file list            | ");
 
         listFiles = new ConcurrentSkipListMap<>();
@@ -24,16 +24,16 @@ public class Main {
         tFileDetective.start();
 
         Thread.sleep(200);
-        System.out.println("--Files with size more than 1 kb");
+        System.out.printf("%n %35s --Files with size more than 1 kb-- %n%n", " ");
         selectMoreLength(1024);
 
         Thread.sleep(200);
-        System.out.println("--Files with size less than 1 kb");
+        System.out.printf("%n %35s --Files with size less than 1 kb-- %n%n", " ");
         selectLessLength(1024);
 
         Thread.sleep(200);
         String text = "Checkout";
-        System.out.printf("--Files with target text \"%s\" %n", text);
+        System.out.printf("%n %35s--Files with target text \"%s\" %n%n", " ", text);
         selectWithText(text);
     }
 

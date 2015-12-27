@@ -27,7 +27,7 @@ public class FileSelector implements Runnable {
     public void run() {
         for (Map.Entry<String, BasicFileAttributes> entry : listFiles.entrySet()) {
             if (attrSelector.select(entry.getValue()) && fileSlc.select(entry.getKey(), matchText))
-                System.out.printf("%60s %n", entry.getKey());
+                System.out.printf("%-40s %s %n", " ", entry.getKey());
         }
     }
 }
