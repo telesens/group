@@ -26,8 +26,8 @@ public class Main {
         ScriptEngineManager factory = new ScriptEngineManager();
         ScriptEngine engine = factory.getEngineByName("JavaScript");
         try {
-            Object result = engine.eval("res = "+exp+";");
-            System.out.printf("%s = %s %n",exp, result);
+            System.out.print(exp + " = ");
+            engine.eval("print(" + exp + ");");
         } catch(ScriptException exc) {
             exc.printStackTrace();
         }
